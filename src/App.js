@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { SkeletonTheme } from 'react-loading-skeleton';
 
+
 import './App.css'; // Main App specific styles (should be minimal)
 import Navbar from './components/Layout/Navbar'; // Navbar component
 import Footer from './components/Layout/Footer'; // Footer component
@@ -13,6 +14,7 @@ import CheckoutPage from './pages/CheckoutPage'; // Import CheckoutPage
 // import ProductDetailPage from './pages/ProductDetailPage'; // Example for later
 // import UserDashboardPage from './pages/UserDashboardPage'; // Example for later
 import ProtectedRoute from './components/ProtectedRoute'; // If you have protected routes
+import './App.css';
 
 function App() {
   return (
