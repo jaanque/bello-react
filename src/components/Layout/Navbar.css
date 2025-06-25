@@ -1,0 +1,255 @@
+/* Navbar.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem; /* Default padding */
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); /* Softer shadow */
+  position: fixed; /* Fixed at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000; /* Ensure it's above other content */
+  transition: padding 0.3s ease; /* Smooth transition for padding changes */
+}
+
+.nav-logo a {
+  font-size: 1.6rem; /* Slightly larger logo */
+  font-weight: 700;
+  color: #007bff; /* Professional blue */
+  text-decoration: none;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1.8rem; /* Increased gap */
+  margin: 0; /* Reset default margin */
+  padding: 0; /* Reset default padding */
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #495057; /* Dark gray for links */
+  font-weight: 500;
+  padding: 0.5rem 0; /* Vertical padding for larger click area */
+  position: relative; /* For underline effect */
+  transition: color 0.25s ease;
+}
+
+.nav-links a::after { /* Underline effect */
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #007bff; /* Blue for active/hover */
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%; /* Full underline on hover/active */
+}
+
+.nav-auth {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem; /* Gap between auth elements */
+}
+
+.nav-user-email {
+  font-size: 0.9rem;
+  color: #6c757d;
+  margin-right: 0.5rem; /* Space before logout button */
+}
+
+.nav-btn { /* Base style for all buttons in nav-auth */
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  cursor: pointer;
+  border: 1px solid transparent; /* Base border */
+  white-space: nowrap; /* Prevent buttons from wrapping text */
+}
+
+.login-btn {
+  background-color: transparent;
+  color: #007bff;
+  border-color: #007bff;
+}
+
+.login-btn:hover {
+  background-color: #007bff;
+  color: #ffffff;
+}
+
+.signup-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  border-color: #007bff;
+}
+
+.signup-btn:hover {
+  background-color: #0056b3; /* Darker blue */
+  border-color: #0056b3;
+}
+
+/* LogoutButton is imported, assuming it's a <button> element */
+.nav-auth button.logout-btn-class { /* Add a class to LogoutButton's button for styling */
+  background-color: #dc3545; /* Red for logout */
+  color: #ffffff;
+  border-color: #dc3545;
+}
+.nav-auth button.logout-btn-class:hover {
+  background-color: #c82333; /* Darker red */
+  border-color: #c82333;
+}
+
+.submit-template-btn {
+  background-color: #28a745; /* Green for submit template */
+  color: #ffffff;
+  border-color: #28a745;
+  margin-left: 0.5rem; /* Space from auth buttons */
+}
+
+.submit-template-btn:hover {
+  background-color: #218838; /* Darker green */
+  border-color: #218838;
+}
+
+/* Hamburger Menu for Mobile */
+.nav-toggle {
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 10; /* Ensure it's clickable */
+}
+
+.nav-toggle .bar {
+  width: 100%;
+  height: 2px;
+  background-color: #343a40; /* Dark color for bars */
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) { /* Breakpoint for tablet and mobile */
+  .navbar {
+    padding: 1rem 1.5rem; /* Slightly reduce padding */
+  }
+  .nav-links {
+    gap: 1.2rem; /* Reduce gap between links */
+  }
+  .nav-logo a {
+    font-size: 1.4rem;
+  }
+  .nav-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 768px) { /* Mobile menu activation */
+  .navbar {
+    padding: 0.8rem 1rem; /* Further reduce padding */
+  }
+  .nav-links {
+    position: absolute;
+    top: 60px; /* Adjust based on navbar height */
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    max-height: 0; /* Hidden by default */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    gap: 0; /* Reset gap for column layout */
+  }
+
+  .nav-links.active { /* Class to show mobile menu */
+    max-height: 300px; /* Adjust as needed to fit links */
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #f0f0f0; /* Separator for links */
+  }
+  .nav-links li:last-child {
+    border-bottom: none;
+  }
+
+  .nav-links a {
+    display: block; /* Make links take full width */
+    padding: 1rem; /* More padding for touch targets */
+  }
+  .nav-links a::after { /* Remove underline effect on mobile for cleaner look */
+    display: none;
+  }
+  .nav-links a.active { /* Different active style for mobile */
+    background-color: #007bff;
+    color: #ffffff;
+  }
+
+  .nav-auth { /* Stack auth buttons below links or adjust as needed */
+    /* Option 1: Hide some auth buttons in mobile, or move to menu */
+    /* Option 2: Keep them, but they might wrap or need smaller size */
+    /* For this example, let's assume they remain but might need adjustments */
+    gap: 0.5rem;
+  }
+  .nav-user-email {
+    display: none; /* Hide email on small screens for space */
+  }
+
+  .nav-toggle {
+    display: flex; /* Show hamburger */
+  }
+
+  /* Hamburger animation for 'X' (active state) */
+  .nav-toggle.active .bar:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .nav-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle.active .bar:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-logo a {
+    font-size: 1.3rem; /* Smaller logo on very small screens */
+  }
+  .nav-auth {
+    /* Further simplify auth section if needed, e.g., only show login/signup icons */
+  }
+  .nav-btn, .nav-auth button.logout-btn-class, .submit-template-btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  .submit-template-btn {
+    display: none; /* Example: hide less critical button for space */
+  }
+}

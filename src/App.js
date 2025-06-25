@@ -1,86 +1,49 @@
-import React, { useState } from 'react';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { SkeletonTheme } from 'react-loading-skeleton';
+
+import './App.css'; // Main App specific styles (should be minimal)
+import Navbar from './components/Layout/Navbar'; // Navbar component
+import Footer from './components/Layout/Footer'; // Footer component
+import HomePage from './components/Home/HomePage'; // HomePage component
+import ProductsPage from './pages/ProductsPage'; // ProductsPage component
+import LoginPage from './pages/LoginPage'; // LoginPage component
+import SignUpPage from './pages/SignUpPage'; // SignUpPage component
+import CheckoutPage from './pages/CheckoutPage'; // Import CheckoutPage
+// import ProductDetailPage from './pages/ProductDetailPage'; // Example for later
+// import UserDashboardPage from './pages/UserDashboardPage'; // Example for later
+import ProtectedRoute from './components/ProtectedRoute'; // If you have protected routes
 
 function App() {
-  const [activeItem, setActiveItem] = useState('home');
-
-  const menuItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'services', label: 'Services' },
-    { id: 'contact', label: 'Contact' }
-  ];
-
   return (
-    <div className="App">
-      {/* Contenido principal */}
-      <div className="main-content">
-        <div className="pricing-container">
-          <div className="pricing-card">
-            <div className="pricing-left">
-              <h2>Every type of asset,</h2>
-              <h2>for any type of project.</h2>
-              <p>With our full AI stack, generate images, videos, music, and more — all included in your subscription.*</p>
-              <p className="disclaimer">*Not available on Enterprise Plans.</p>
-            </div>
-            <div className="pricing-right">
-              <div className="pricing-details">
-                <div className="price-header">Desde</div>
-                <div className="price">14,50 €<span className="price-period">/mes</span></div>
-                <div className="features">
-                  <div className="feature">
-                    <span className="feature-icon">↓</span>
-                    <span>Descargas ilimitadas</span>
-                  </div>
-                  <div className="feature">
-                    <span className="feature-icon">⊙</span>
-                    <span>22+ millones de recursos premium</span>
-                  </div>
-                  <div className="feature">
-                    <span className="feature-icon">✦</span>
-                    <span>Pila completa de herramientas de IA</span>
-                  </div>
-                  <div className="feature">
-                    <span className="feature-icon">✓</span>
-                    <span>Licencia comercial de por vida</span>
-                  </div>
-                </div>
-                <button className="cta-button">Obtén descargas ilimitadas</button>
-              </div>
-            </div>
-          </div>
+    <SkeletonTheme baseColor="#e0e0e0" highlightColor="#f0f0f0">
+      <Router>
+        <div className="App">
+          <Navbar />
+          <main className="main-router-content-area">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              {/* <Route path="/products/:productId" element={<ProductDetailPage />} /> */}
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
+              <Route
+                path="/checkout"
+                element={
+                  <ProtectedRoute>
+                    <CheckoutPage />
+                  </ProtectedRoute>
+                }
+              />
+              {/* <Route path="/dashboard" element={<ProtectedRoute><UserDashboardPage /></ProtectedRoute>} /> */}
+              {/* Add other routes here: About, Contact, etc. */}
+              {/* <Route path="*" element={<NotFoundPage />} /> */}
+            </Routes>
+          </main>
+          <Footer />
         </div>
-      </div>
-
-      {/* Menú flotante */}
-      <nav className="floating-menu">
-        <div className="menu-container">
-          {/* Logo */}
-          <div className="logo">
-            <span className="logo-text">TelaioDev</span>
-          </div>
-          
-          {/* Items del menú */}
-          <div className="menu-items">
-            {menuItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => setActiveItem(item.id)}
-                className={`menu-item ${activeItem === item.id ? 'active' : ''}`}
-                title={item.label}
-              >
-                {item.label}
-              </button>
-            ))}
-          </div>
-          
-          {/* Botón Submit */}
-          <button className="submit-button">
-            Submit your template
-          </button>
-        </div>
-      </nav>
-    </div>
+      </Router>
+    </SkeletonTheme>
   );
 }
 

@@ -1,0 +1,68 @@
+/* ProductList.css */
+.product-list-container {
+  width: 100%;
+  padding: 1rem 0; /* Padding around the list, adjust as needed */
+}
+
+.product-grid {
+  display: grid;
+  /* Minimum item width 280px, 1fr means it will take available space */
+  /* auto-fill will create as many columns as fit, auto-fit will expand items to fill space if fewer items */
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 1.8rem; /* Gap between cards, adjust as needed */
+
+  /* Ensure this matches max-width in parent containers like HomePage.css or main content area */
+  /* max-width: 1200px; */ /* Example: if ProductList is used in various width containers */
+  /* margin: 0 auto; */   /* Example: if ProductList should center itself */
+}
+
+.product-list-error,
+.no-products-found {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #6c757d; /* Medium gray text */
+}
+
+.product-list-error {
+  color: #dc3545; /* Red for errors */
+}
+
+/* Responsive adjustments for the grid */
+@media (max-width: 1200px) { /* Example: Slightly larger cards on large tablets */
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 992px) { /* Standard tablets */
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) { /* Smaller tablets / large phones */
+  .product-grid {
+    /* May show 2 columns if space allows, or 1 if minmax forces it */
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 576px) { /* Most mobile phones */
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Cards can get quite small */
+    /* Or switch to single column: */
+    /* grid-template-columns: 1fr; */
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 400px) { /* Very small mobile phones */
+    .product-grid {
+        grid-template-columns: 1fr; /* Force single column */
+        gap: 1rem;
+    }
+}

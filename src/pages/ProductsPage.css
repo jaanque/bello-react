@@ -1,0 +1,105 @@
+/* ProductsPage.css */
+.products-page {
+  padding: 1rem 0; /* Add some vertical padding if needed, horizontal handled by main-router-content-area */
+  animation: fadeIn 0.5s ease-out;
+}
+
+.products-page-header {
+  text-align: center;
+  margin-bottom: 2.5rem; /* Space below header */
+  padding: 1.5rem 1rem;
+  background-color: #e9ecef; /* Light background for header area */
+  border-radius: 8px;
+}
+
+.products-page-header h1 {
+  font-size: clamp(2rem, 5vw, 2.8rem); /* Responsive title */
+  color: #007bff; /* Theme color */
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.products-page-header p {
+  font-size: clamp(1rem, 2.5vw, 1.1rem); /* Responsive subtitle */
+  color: #495057; /* Dark gray text */
+  max-width: 700px; /* Limit width of subtitle */
+  margin: 0 auto; /* Center subtitle */
+  line-height: 1.6;
+}
+
+/* Styles for future filter/sort controls */
+.products-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex-wrap: wrap; /* Allow controls to wrap on smaller screens */
+  gap: 1rem; /* Gap between filter and sort sections */
+}
+
+.filters, .sorting {
+  display: flex;
+  gap: 0.8rem; /* Gap between individual select/input elements */
+  align-items: center;
+}
+
+.products-controls select,
+.products-controls input[type="text"] { /* Example if you add a search input */
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  background-color: #fff;
+  min-width: 150px; /* Minimum width for select dropdowns */
+}
+
+.products-controls select:focus,
+.products-controls input[type="text"]:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+  outline: none;
+}
+
+.products-page-content {
+  /* The ProductList component will handle its own grid styling */
+  /* No specific styles needed here unless ProductsPage adds more layout around ProductList */
+}
+
+/* Responsive adjustments for ProductsPage */
+@media (max-width: 768px) {
+  .products-page-header {
+    padding: 1rem 0.5rem;
+    margin-bottom: 2rem;
+  }
+  .products-controls {
+    flex-direction: column; /* Stack filter and sort on smaller screens */
+    align-items: stretch; /* Make controls take full width */
+  }
+  .filters, .sorting {
+    width: 100%;
+    justify-content: space-between; /* Space out items within filter/sort */
+  }
+  .products-controls select {
+    flex-grow: 1; /* Allow selects to grow */
+  }
+}
+
+@media (max-width: 480px) {
+  .products-page-header h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+  .products-page-header p {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+  .products-controls {
+    padding: 0.8rem;
+  }
+  .products-controls select {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.7rem;
+  }
+}

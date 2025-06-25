@@ -1,0 +1,266 @@
+/* HomePage.css */
+.homepage {
+  padding-bottom: 3rem; /* Space before footer */
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Hero Section */
+.hero-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem; /* Generous padding */
+  background: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%); /* Light, inviting gradient */
+  /* Or a subtle pattern or image: background: url('/path-to-hero-bg.jpg') no-repeat center center/cover; */
+  border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+  margin-bottom: 3rem; /* Space below hero */
+  overflow: hidden; /* Ensure content respects border radius */
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px; /* Limit width of text content */
+  text-align: left;
+  padding-right: 2rem; /* Space between text and image */
+}
+
+.hero-content h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); /* Responsive heading */
+  color: #004d40; /* Dark teal for heading */
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Responsive subtitle */
+  color: #00695c; /* Medium teal */
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-cta-button {
+  display: inline-block;
+  padding: 0.9rem 2rem;
+  background-color: #007bff; /* Primary blue from theme */
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0, 123, 255, 0.2);
+}
+
+.hero-cta-button:hover {
+  background-color: #0056b3; /* Darker blue */
+  transform: translateY(-2px);
+}
+
+.hero-image-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 500px; /* Max width for image area */
+}
+
+.hero-placeholder-image { /* Style for the placeholder div */
+  width: 100%;
+  height: 300px; /* Adjust as needed */
+  background-color: #b2dfdb; /* Light teal placeholder */
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #004d40;
+  /* text-shadow: 1px 1px 2px rgba(0,0,0,0.1); */
+  /* You can add an SVG icon or text here */
+}
+.hero-placeholder-image::before {
+  content: "🖼️"; /* Example emoji */
+  font-size: 4rem;
+}
+
+
+/* Featured Categories Section */
+.featured-categories {
+  padding: 2rem 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.featured-categories h2 {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #343a40;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.category-card {
+  background-color: #ffffff;
+  padding: 1.8rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
+  text-align: center;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.category-icon {
+  font-size: 2.5rem; /* Adjust size of placeholder emoji/icon */
+  margin-bottom: 1rem;
+  color: #007bff; /* Theme color for icons */
+}
+
+.category-card h3 {
+  font-size: 1.2rem;
+  color: #343a40;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.category-card p {
+  font-size: 0.9rem;
+  color: #6c757d;
+  line-height: 1.5;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+  padding: 3rem 1rem;
+  background-color: #f8f9fa; /* Or a slightly different light shade like #eef1f5 */
+  text-align: center;
+  margin-bottom: 1rem; /* Reduced margin if pricing section follows directly */
+}
+
+.why-choose-us h2 {
+  font-size: clamp(1.8rem, 4vw, 2.2rem);
+  color: #343a40;
+  margin-bottom: 2.5rem;
+  font-weight: 600;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.why-card {
+  background-color: #ffffff; /* Could be slightly off-white too if section bg is white */
+  padding: 2rem;
+  border-radius: 10px;
+  /* box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); */
+  border: 1px solid #e0e0e0; /* Subtle border */
+  text-align: center;
+}
+
+.why-icon {
+  font-size: 2.5rem; /* Adjust placeholder icon size */
+  margin-bottom: 1rem;
+  color: #28a745; /* Green for these icons, or another accent */
+}
+
+.why-card h3 {
+  font-size: 1.25rem;
+  color: #343a40;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.why-card p {
+  font-size: 0.95rem;
+  color: #6c757d;
+  line-height: 1.6;
+}
+
+
+/* Responsive adjustments for HomePage */
+@media (max-width: 992px) {
+  .hero-content h1 {
+    font-size: clamp(2.2rem, 4.5vw, 3rem);
+  }
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    flex-direction: column; /* Stack content and image */
+    padding: 3rem 1.5rem;
+    text-align: center; /* Center text when stacked */
+  }
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 2rem; /* Space between text and image */
+    text-align: center;
+    max-width: 100%;
+  }
+  .hero-image-container {
+    max-width: 80%; /* Image can be wider when stacked */
+  }
+  .hero-placeholder-image {
+    height: 250px;
+  }
+  .categories-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+  .why-grid {
+    grid-template-columns: 1fr; /* Stack 'why' cards */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section {
+    padding: 2.5rem 1rem;
+  }
+  .hero-content h1 {
+    font-size: clamp(1.8rem, 6vw, 2.2rem);
+  }
+  .hero-subtitle {
+    font-size: clamp(0.9rem, 3vw, 1rem);
+  }
+  .hero-cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+  }
+  .hero-placeholder-image {
+    height: 200px;
+  }
+  .featured-categories h2, .why-choose-us h2 {
+    font-size: clamp(1.6rem, 5vw, 2rem);
+    margin-bottom: 2rem;
+  }
+  .category-card, .why-card {
+    padding: 1.5rem;
+  }
+  .category-card h3, .why-card h3 {
+    font-size: 1.1rem;
+  }
+}
+
+/* Styles for the app-embedded-pricing-section are expected to come from App.css or its own component CSS.
+   If App.css is not loaded globally or those styles are not available, they would need to be duplicated
+   or imported here if this component is the one rendering that structure.
+   For now, we assume App.css provides the necessary styles for:
+   .app-embedded-pricing-section, .app-embedded-pricing-card-grid, etc.
+*/
