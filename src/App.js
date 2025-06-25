@@ -15,21 +15,39 @@ function App() {
     <div className="App">
       {/* Contenido principal */}
       <div className="main-content">
-        <h1>Mi Aplicación</h1>
-        <div className="content-grid">
-          <p>
-            Bienvenido a la aplicación con menú flotante. El menú se encuentra en la parte superior
-            con un diseño limpio y minimalista.
-          </p>
-          <div className="cards-container">
-            {[1, 2, 3, 4, 5, 6].map((item) => (
-              <div key={item} className="card">
-                <h3>Sección {item}</h3>
-                <p>
-                  Contenido de ejemplo para mostrar cómo se ve la página con el menú flotante.
-                </p>
+        <div className="pricing-container">
+          <div className="pricing-card">
+            <div className="pricing-left">
+              <h2>Every type of asset,</h2>
+              <h2>for any type of project.</h2>
+              <p>With our full AI stack, generate images, videos, music, and more — all included in your subscription.*</p>
+              <p className="disclaimer">*Not available on Enterprise Plans.</p>
+            </div>
+            <div className="pricing-right">
+              <div className="pricing-details">
+                <div className="price-header">Desde</div>
+                <div className="price">4,99 €<span className="price-period">/mes</span></div>
+                <div className="features">
+                  <div className="feature">
+                    <span className="feature-icon">↓</span>
+                    <span>Descargas ilimitadas</span>
+                  </div>
+                  <div className="feature">
+                    <span className="feature-icon">⊙</span>
+                    <span>22+ millones de recursos premium</span>
+                  </div>
+                  <div className="feature">
+                    <span className="feature-icon">✦</span>
+                    <span>Pila completa de herramientas de IA</span>
+                  </div>
+                  <div className="feature">
+                    <span className="feature-icon">✓</span>
+                    <span>Licencia comercial de por vida</span>
+                  </div>
+                </div>
+                <button className="cta-button">Obtén descargas ilimitadas</button>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>
