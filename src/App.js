@@ -26,7 +26,7 @@ function App() {
             <div className="pricing-right">
               <div className="pricing-details">
                 <div className="price-header">Desde</div>
-                <div className="price">4,99 €<span className="price-period">/mes</span></div>
+                <div className="price">14,50 €<span className="price-period">/mes</span></div>
                 <div className="features">
                   <div className="feature">
                     <span className="feature-icon">↓</span>
